@@ -71,16 +71,16 @@
 		{
 			this.CloseAndStoreResult();
 		}
-        private void lvAssemblies_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.CloseAndStoreResult();
-        }
+		private void lvAssemblies_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			this.CloseAndStoreResult();
+		}
 
-        private void lvProjects_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.CloseAndStoreResult();
-        }
-
+		private void lvProjects_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			this.CloseAndStoreResult();
+			}
+		
 		private void CloseAndStoreResult()
 		{
 			this.DialogResult = DialogResult.OK;
