@@ -17,8 +17,8 @@
 			var resultList = new List<AssemblyData>();
 			foreach (var folder in folders)
 			{
-                if (!System.IO.Directory.Exists(folder))
-                    continue;
+				if (!System.IO.Directory.Exists(folder))
+					continue;
 				var folderAssemblySource = new FolderAssembliesSource(folder, true);
 				resultList.AddRange(folderAssemblySource.GetAssemblyDatas());
 			}
