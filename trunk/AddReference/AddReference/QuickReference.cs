@@ -17,8 +17,8 @@
 
 		void shellView_FilterItem(object sender, FilterItemEventArgs e)
 		{
-			e.Include = ((e.Item.FileSystemPath.EndsWith(".dll") ||
-			             e.Item.FileSystemPath.EndsWith("*.exe"))&&!e.Item.IsFolder) || e.Item.IsFolder;
+			e.Include = ((e.Item.FileSystemPath.ToLowerInvariant().EndsWith(".dll") ||
+						 e.Item.FileSystemPath.ToLowerInvariant().EndsWith("*.exe")) && !e.Item.IsFolder) || e.Item.IsFolder;
 		}
 
 		private DialogSelectionResult dialogSelectionResult;
