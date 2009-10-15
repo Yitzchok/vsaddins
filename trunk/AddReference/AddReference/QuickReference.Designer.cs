@@ -36,6 +36,11 @@
             this.scFolderPath = new System.Windows.Forms.SplitContainer();
             this.fdFolderPath = new GongSolutions.Shell.FileDialogToolbar();
             this.shellView = new GongSolutions.Shell.ShellView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbFilePath = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbNET = new System.Windows.Forms.TabPage();
             this.lvAssemblies = new System.Windows.Forms.ListView();
             this.chAssemblyName = new System.Windows.Forms.ColumnHeader();
@@ -58,6 +63,9 @@
             this.scFolderPath.Panel1.SuspendLayout();
             this.scFolderPath.Panel2.SuspendLayout();
             this.scFolderPath.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tbNET.SuspendLayout();
             this.tbProject.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +151,7 @@
             // 
             // scFolderPath.Panel2
             // 
-            this.scFolderPath.Panel2.Controls.Add(this.shellView);
+            this.scFolderPath.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.scFolderPath.Size = new System.Drawing.Size(570, 325);
             this.scFolderPath.SplitterDistance = 28;
             this.scFolderPath.TabIndex = 0;
@@ -160,14 +168,76 @@
             // shellView
             // 
             this.shellView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shellView.Location = new System.Drawing.Point(0, 0);
+            this.shellView.Location = new System.Drawing.Point(3, 3);
             this.shellView.Name = "shellView";
-            this.shellView.Size = new System.Drawing.Size(570, 293);
+            this.shellView.Size = new System.Drawing.Size(564, 248);
             this.shellView.StatusBar = null;
             this.shellView.TabIndex = 0;
             this.shellView.Text = "shellView";
             this.shellView.View = GongSolutions.Shell.ShellViewStyle.Details;
             this.shellView.DoubleClick += new System.EventHandler(this.shellView_DoubleClick);
+            this.shellView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shellView_KeyDown);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.shellView, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(570, 293);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 257);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(564, 33);
+            this.panel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.13475F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.86525F));
+            this.tableLayoutPanel2.Controls.Add(this.cbFilePath, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(564, 33);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // cbFilePath
+            // 
+            this.cbFilePath.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbFilePath.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
+            this.cbFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbFilePath.FormattingEnabled = true;
+            this.cbFilePath.Location = new System.Drawing.Point(93, 3);
+            this.cbFilePath.Name = "cbFilePath";
+            this.cbFilePath.Size = new System.Drawing.Size(468, 21);
+            this.cbFilePath.TabIndex = 1;
+            this.cbFilePath.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbFilePath_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "File Name:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbNET
             // 
@@ -295,6 +365,9 @@
             this.scFolderPath.Panel1.ResumeLayout(false);
             this.scFolderPath.Panel2.ResumeLayout(false);
             this.scFolderPath.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tbNET.ResumeLayout(false);
             this.tbProject.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -323,5 +396,10 @@
 		private System.Windows.Forms.ListView lvProjects;
 		private System.Windows.Forms.ColumnHeader chProjectName;
 		private System.Windows.Forms.ColumnHeader chProjectPath;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox cbFilePath;
+        private System.Windows.Forms.Label label1;
 	}
 }
