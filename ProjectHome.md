@@ -1,0 +1,1 @@
+A project that combines several community addins for visual studio
